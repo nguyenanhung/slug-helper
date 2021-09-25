@@ -13,7 +13,7 @@ if (!function_exists('seoToSlugify')) {
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 09/25/2021 34:34
      */
-    function seoToSlugify($str)
+    function seoToSlugify($str): string
     {
         return (new SlugUrl())->slugify($str);
     }
@@ -29,7 +29,7 @@ if (!function_exists('seoSearchSlugify')) {
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 09/25/2021 34:34
      */
-    function seoSearchSlugify($str)
+    function seoSearchSlugify($str): string
     {
         return (new SlugUrl())->searchSlugify($str);
     }
@@ -45,7 +45,7 @@ if (!function_exists('convertStrToEn')) {
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 09/25/2021 34:34
      */
-    function convertStrToEn($str)
+    function convertStrToEn($str): string
     {
         return (new SlugUrl())->toEnglish($str);
     }

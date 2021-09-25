@@ -39,7 +39,7 @@ class SlugUrl
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 09/25/2021 26:03
      */
-    public function setSiteUrl($siteUrl = '')
+    public function setSiteUrl(string $siteUrl = ''): SlugUrl
     {
         $this->siteUrl = $siteUrl;
 
@@ -54,7 +54,7 @@ class SlugUrl
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 09/25/2021 26:11
      */
-    public function getSiteUrl()
+    public function getSiteUrl(): string
     {
         return $this->siteUrl;
     }
@@ -69,7 +69,7 @@ class SlugUrl
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 09/25/2021 26:00
      */
-    public function setSiteExt($siteExt)
+    public function setSiteExt($siteExt): SlugUrl
     {
         $this->siteExt = $siteExt;
 
@@ -84,7 +84,7 @@ class SlugUrl
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 09/25/2021 26:17
      */
-    public function getSiteExt()
+    public function getSiteExt(): string
     {
         return $this->siteExt;
     }
@@ -99,7 +99,7 @@ class SlugUrl
      *
      * @return string
      */
-    public function slugify($str = '')
+    public function slugify(string $str = ''): string
     {
         try {
             $slugify = new Slugify();
@@ -121,7 +121,7 @@ class SlugUrl
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 09/25/2021 30:20
      */
-    public function searchSlugify($str = '')
+    public function searchSlugify(string $str = ''): string
     {
         try {
             $options = array('separator' => '+');
@@ -143,7 +143,7 @@ class SlugUrl
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 09/25/2021 32:49
      */
-    public function toEnglish($str = '')
+    public function toEnglish(string $str = ''): string
     {
         try {
             $options = array('separator' => ' ');
@@ -165,7 +165,7 @@ class SlugUrl
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 09/25/2021 31:43
      */
-    public function urlEncode($url = '')
+    public function urlEncode(string $url = ''): string
     {
         return urlencode($url);
     }
@@ -173,14 +173,14 @@ class SlugUrl
     /**
      * Function urlDecode
      *
-     * @param $url
+     * @param string $url
      *
      * @return string
      * @author   : 713uk13m <dev@nguyenanhung.com>
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 09/25/2021 31:46
      */
-    public function urlDecode($url)
+    public function urlDecode(string $url): string
     {
         return urldecode($url);
     }
@@ -199,7 +199,7 @@ class SlugUrl
      * @time  : 10/13/18 01:17
      *
      */
-    public function convertVietnameseToEnglish($str = '')
+    public function convertVietnameseToEnglish(string $str = ''): string
     {
         $str  = trim($str);
         $str  = function_exists('mb_strtolower') ? mb_strtolower($str) : strtolower($str);
