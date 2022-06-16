@@ -107,9 +107,10 @@ class SlugUrl
                 $slugify = new Slugify();
             } else {
                 if (is_string($options)) {
-                    $options = array('separator' => '+');
+                    $slugify = new Slugify(array('separator' => $options));
+                } else {
+                    $slugify = new Slugify($options);
                 }
-                $slugify = new Slugify($options);
             }
 
             return $slugify->slugify($str);
