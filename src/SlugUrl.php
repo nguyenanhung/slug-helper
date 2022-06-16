@@ -27,7 +27,7 @@ class SlugUrl
     protected $siteUrl;
 
     /** @var string Site Ext */
-    private $siteExt = '.html';
+    protected $siteExt = '.html';
 
     /**
      * Function setSiteUrl
@@ -96,13 +96,21 @@ class SlugUrl
      * @time  : 9/21/18 02:49
      *
      * @param string $str
+     * @param mixed  $options
      *
      * @return string
      */
-    public function slugify($str = '')
+    public function slugify($str = '', $options = null)
     {
         try {
-            $slugify = new Slugify();
+            if ($options === null) {
+                $slugify = new Slugify();
+            } else {
+                if (is_string($options)) {
+                    $options = array('separator' => '+');
+                }
+                $slugify = new Slugify($options);
+            }
 
             return $slugify->slugify($str);
         } catch (Exception $e) {
