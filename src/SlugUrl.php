@@ -95,8 +95,8 @@ class SlugUrl
      * @author: 713uk13m <dev@nguyenanhung.com>
      * @time  : 9/21/18 02:49
      *
-     * @param string            $str
-     * @param null|string|array $options
+     * @param string $str
+     * @param mixed  $options
      *
      * @return string
      */
