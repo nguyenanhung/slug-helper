@@ -105,12 +105,10 @@ class SlugUrl
         try {
             if ($options === null) {
                 $slugify = new Slugify();
+            } elseif (is_string($options)) {
+                $slugify = new Slugify(array('separator' => $options));
             } else {
-                if (is_string($options)) {
-                    $slugify = new Slugify(array('separator' => $options));
-                } else {
-                    $slugify = new Slugify($options);
-                }
+                $slugify = new Slugify($options);
             }
 
             return $slugify->slugify($str);
@@ -134,9 +132,8 @@ class SlugUrl
     {
         try {
             $options = array('separator' => '+');
-            $slugify = new Slugify($options);
 
-            return $slugify->slugify($str);
+            return (new Slugify($options))->slugify($str);
         } catch (Exception $e) {
             return $this->convertVietnameseToEnglish($str);
         }
@@ -156,9 +153,8 @@ class SlugUrl
     {
         try {
             $options = array('separator' => ' ');
-            $slugify = new Slugify($options);
 
-            return $slugify->slugify($str);
+            return (new Slugify($options))->slugify($str);
         } catch (Exception $e) {
             return $this->convertVietnameseToEnglish($str);
         }
@@ -214,15 +210,37 @@ class SlugUrl
         $str  = function_exists('mb_strtolower') ? mb_strtolower($str) : strtolower($str);
         $data = DataRepository::getData('convert_vi_to_en');
         if (!empty($str)) {
-            $str = str_replace($data['vn_array'], $data['en_array'], $str);
-            $str = str_replace($data['special_array'], $data['separator'], $str);
-            $str = str_replace(' ', $data['separator'], $str);
+            $str = str_replace(
+                array($data['vn_array'], $data['special_array'], ' '),
+                array($data['en_array'], $data['separator'], $data['separator']),
+                $str
+            );
             while (strpos($str, '--') > 0) {
                 $str = str_replace('--', $data['separator'], $str);
             }
             while (strpos($str, '--') === 0) {
                 $str = str_replace('--', $data['separator'], $str);
             }
+        }
+
+        return $str;
+    }
+
+    /**
+     * Function convertStringUtf8ToUnicode
+     *
+     * @param string $str
+     *
+     * @return array|mixed|string|string[]
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 22/08/2022 27:31
+     */
+    public function convertStringUtf8ToUnicode(string $str = '')
+    {
+        if ($str !== '') {
+            $data = DataRepository::getData('convert_utf8_to_unicode');
+            $str  = str_replace($data['utf8_array'], $data['unicode_array'], $str);
         }
 
         return $str;

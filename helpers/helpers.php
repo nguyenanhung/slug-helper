@@ -50,3 +50,35 @@ if (!function_exists('convertStrToEn')) {
         return (new SlugUrl())->toEnglish($str);
     }
 }
+if (!function_exists('convert_string_utf8_to_vietnamese')) {
+    /**
+     * Function convert_string_utf8_to_vietnamese
+     *
+     * @param $str
+     *
+     * @return array|mixed|string|string[]
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 22/08/2022 23:33
+     */
+    function convert_string_utf8_to_vietnamese($str)
+    {
+        return (new SlugUrl())->convertStringUtf8ToUnicode($str);
+    }
+}
+if (!function_exists('convert_string_utf8_to_unicode')) {
+    /**
+     * Function convert_string_utf8_to_unicode
+     *
+     * @param $str
+     *
+     * @return array|mixed|string|string[]
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 22/08/2022 23:33
+     */
+    function convert_string_utf8_to_unicode($str)
+    {
+        return (new SlugUrl())->convertStringUtf8ToUnicode($str);
+    }
+}
