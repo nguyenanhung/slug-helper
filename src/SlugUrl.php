@@ -132,7 +132,6 @@ class SlugUrl
     {
         try {
             $options = array('separator' => '+');
-
             return (new Slugify($options))->slugify($str);
         } catch (Exception $e) {
             return $this->convertVietnameseToEnglish($str);
@@ -231,10 +230,10 @@ class SlugUrl
      *
      * @param string $str
      *
-     * @return array|mixed|string|string[]
+     * @return array|string|string[]
      * @author   : 713uk13m <dev@nguyenanhung.com>
      * @copyright: 713uk13m <dev@nguyenanhung.com>
-     * @time     : 22/08/2022 27:31
+     * @time     : 15/02/2023 35:01
      */
     public function convertStringUtf8ToUnicode(string $str = '')
     {

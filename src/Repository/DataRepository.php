@@ -19,9 +19,8 @@ namespace nguyenanhung\Libraries\Slug\Repository;
  */
 class DataRepository
 {
-
     const CONFIG_PATH = 'config';
-    const CONFIG_EXT  = '.php';
+    const CONFIG_EXT = '.php';
 
     /**
      * Hàm lấy nội dung config được quy định trong thư mục config
