@@ -103,12 +103,12 @@ class SlugUrl
     public function slugify($str = '', $options = null)
     {
         try {
-            if ($options === null) {
-                $slugify = new Slugify();
-            } elseif (is_string($options)) {
-                $slugify = new Slugify(array('separator' => $options));
-            } else {
-                $slugify = new Slugify($options);
+            $slugify = new Slugify();
+            if (is_string($options)) {
+                $options = array('separator' => $options);
+            }
+            if (!empty($options) && is_array($options)) {
+                $slugify->setOptions($options);
             }
 
             return $slugify->slugify($str);
@@ -132,8 +132,10 @@ class SlugUrl
     {
         try {
             $options = array('separator' => '+');
+            $slug = new Slugify();
+            $slug->setOptions($options);
 
-            return (new Slugify($options))->slugify($str);
+            return $slug->slugify($str);
         } catch (Exception $e) {
             return $this->convertVietnameseToEnglish($str);
         }
@@ -153,8 +155,10 @@ class SlugUrl
     {
         try {
             $options = array('separator' => ' ');
+            $slug = new Slugify();
+            $slug->setOptions($options);
 
-            return (new Slugify($options))->slugify($str);
+            return $slug->slugify($str);
         } catch (Exception $e) {
             return $this->convertVietnameseToEnglish($str);
         }
@@ -206,8 +210,8 @@ class SlugUrl
      */
     public function convertVietnameseToEnglish($str = '')
     {
-        $str  = trim($str);
-        $str  = function_exists('mb_strtolower') ? mb_strtolower($str) : strtolower($str);
+        $str = trim($str);
+        $str = function_exists('mb_strtolower') ? mb_strtolower($str) : strtolower($str);
         $data = DataRepository::getData('convert_vi_to_en');
         if (!empty($str)) {
             $str = str_replace(
@@ -229,18 +233,18 @@ class SlugUrl
     /**
      * Function convertStringUtf8ToUnicode
      *
-     * @param string $str
+     * @param $str
      *
      * @return array|mixed|string|string[]
      * @author   : 713uk13m <dev@nguyenanhung.com>
      * @copyright: 713uk13m <dev@nguyenanhung.com>
-     * @time     : 22/08/2022 22:23
+     * @time     : 15/02/2023 10:33
      */
     public function convertStringUtf8ToUnicode($str = '')
     {
         if ($str !== '') {
             $data = DataRepository::getData('convert_utf8_to_unicode');
-            $str  = str_replace($data['utf8_array'], $data['unicode_array'], $str);
+            $str = str_replace($data['utf8_array'], $data['unicode_array'], $str);
         }
 
         return $str;
