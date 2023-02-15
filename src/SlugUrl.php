@@ -95,8 +95,8 @@ class SlugUrl
      * @author: 713uk13m <dev@nguyenanhung.com>
      * @time  : 9/21/18 02:49
      *
-     * @param string $str
-     * @param mixed  $options
+     * @param string            $str
+     * @param array|string|null $options
      *
      * @return string
      */
@@ -104,14 +104,19 @@ class SlugUrl
     {
         try {
             $slugify = new Slugify();
+            if (empty($options)) {
+                $options = array('separator' => '-');
+            }
             if (is_string($options)) {
                 $options = array('separator' => $options);
             }
-            if (!empty($options) && is_array($options)) {
+            if (method_exists($slugify, 'setOptions')) {
                 $slugify->setOptions($options);
-            }
 
-            return $slugify->slugify($str);
+                return $slugify->slugify($str);
+            } else {
+                return $slugify->slugify($str, $options);
+            }
         } catch (Exception $e) {
             return $this->convertVietnameseToEnglish($str);
         }
@@ -132,10 +137,17 @@ class SlugUrl
     {
         try {
             $options = array('separator' => '+');
-            $slug = new Slugify();
-            $slug->setOptions($options);
+            $slugify = new Slugify();
+            if (empty($options)) {
+                $options = array('separator' => '-');
+            }
+            if (method_exists($slugify, 'setOptions')) {
+                $slugify->setOptions($options);
 
-            return $slug->slugify($str);
+                return $slugify->slugify($str);
+            } else {
+                return $slugify->slugify($str, $options);
+            }
         } catch (Exception $e) {
             return $this->convertVietnameseToEnglish($str);
         }
@@ -155,10 +167,17 @@ class SlugUrl
     {
         try {
             $options = array('separator' => ' ');
-            $slug = new Slugify();
-            $slug->setOptions($options);
+            $slugify = new Slugify();
+            if (empty($options)) {
+                $options = array('separator' => '-');
+            }
+            if (method_exists($slugify, 'setOptions')) {
+                $slugify->setOptions($options);
 
-            return $slug->slugify($str);
+                return $slugify->slugify($str);
+            } else {
+                return $slugify->slugify($str, $options);
+            }
         } catch (Exception $e) {
             return $this->convertVietnameseToEnglish($str);
         }
@@ -214,11 +233,7 @@ class SlugUrl
         $str = function_exists('mb_strtolower') ? mb_strtolower($str) : strtolower($str);
         $data = DataRepository::getData('convert_vi_to_en');
         if (!empty($str)) {
-            $str = str_replace(
-                array($data['vn_array'], $data['special_array'], ' '),
-                array($data['en_array'], $data['separator'], $data['separator']),
-                $str
-            );
+            $str = str_replace(array($data['vn_array'], $data['special_array'], ' '), array($data['en_array'], $data['separator'], $data['separator']), $str);
             while (strpos($str, '--') > 0) {
                 $str = str_replace('--', $data['separator'], $str);
             }
