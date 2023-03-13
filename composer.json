@@ -3,7 +3,9 @@
     "name": "nguyenanhung/slug-helper",
     "description": "Slug Helper - Basic, Clean and Lightweight",
     "keywords": [
-        "slu",
+        "slug",
+        "slugs",
+        "seo",
         "helper",
         "library",
         "php"
