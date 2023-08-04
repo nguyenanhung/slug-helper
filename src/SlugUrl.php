@@ -102,6 +102,9 @@ class SlugUrl
      */
     public function slugify($str = '', $options = null)
     {
+        if (empty($str)) {
+            return $str;
+        }
         try {
             $slugify = new Slugify();
             if (empty($options)) {
@@ -114,9 +117,9 @@ class SlugUrl
                 $slugify->setOptions($options);
 
                 return $slugify->slugify($str);
-            } else {
-                return $slugify->slugify($str, $options);
             }
+
+            return $slugify->slugify($str, $options);
         } catch (Exception $e) {
             return $this->convertVietnameseToEnglish($str);
         }
@@ -135,6 +138,9 @@ class SlugUrl
      */
     public function searchSlugify($str = '')
     {
+        if (empty($str)) {
+            return $str;
+        }
         try {
             $options = array('separator' => '+');
             $slugify = new Slugify();
@@ -145,9 +151,9 @@ class SlugUrl
                 $slugify->setOptions($options);
 
                 return $slugify->slugify($str);
-            } else {
-                return $slugify->slugify($str, $options);
             }
+
+            return $slugify->slugify($str, $options);
         } catch (Exception $e) {
             return $this->convertVietnameseToEnglish($str);
         }
@@ -165,6 +171,9 @@ class SlugUrl
      */
     public function toEnglish($str = '')
     {
+        if (empty($str)) {
+            return $str;
+        }
         try {
             $options = array('separator' => ' ');
             $slugify = new Slugify();
@@ -175,9 +184,9 @@ class SlugUrl
                 $slugify->setOptions($options);
 
                 return $slugify->slugify($str);
-            } else {
-                return $slugify->slugify($str, $options);
             }
+
+            return $slugify->slugify($str, $options);
         } catch (Exception $e) {
             return $this->convertVietnameseToEnglish($str);
         }
@@ -195,6 +204,10 @@ class SlugUrl
      */
     public function urlEncode($url = '')
     {
+        if (empty($url)) {
+            return $url;
+        }
+
         return urlencode($url);
     }
 
@@ -210,6 +223,10 @@ class SlugUrl
      */
     public function urlDecode($url)
     {
+        if (empty($url)) {
+            return $url;
+        }
+
         return urldecode($url);
     }
 
@@ -229,6 +246,9 @@ class SlugUrl
      */
     public function convertVietnameseToEnglish($str = '')
     {
+        if (empty($str)) {
+            return $str;
+        }
         $str = trim($str);
         $str = function_exists('mb_strtolower') ? mb_strtolower($str) : strtolower($str);
         $data = DataRepository::getData('convert_vi_to_en');
@@ -257,6 +277,10 @@ class SlugUrl
      */
     public function convertStringUtf8ToUnicode($str = '')
     {
+        if (empty($str)) {
+            return $str;
+        }
+        $str = trim($str);
         if ($str !== '') {
             $data = DataRepository::getData('convert_utf8_to_unicode');
             $str = str_replace($data['utf8_array'], $data['unicode_array'], $str);

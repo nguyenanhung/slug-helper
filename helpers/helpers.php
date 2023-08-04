@@ -1,7 +1,4 @@
 <?php
-
-use nguyenanhung\Libraries\Slug\SlugUrl;
-
 if (!function_exists('seoToSlugify')) {
     /**
      * Function seoToSlugify
@@ -15,8 +12,10 @@ if (!function_exists('seoToSlugify')) {
      */
     function seoToSlugify($str)
     {
+        if (empty($str)) {
+            return $str;
+        }
         $slug = new nguyenanhung\Libraries\Slug\SlugUrl();
-
         return $slug->slugify($str);
     }
 }
@@ -33,8 +32,10 @@ if (!function_exists('seoSearchSlugify')) {
      */
     function seoSearchSlugify($str)
     {
+        if (empty($str)) {
+            return $str;
+        }
         $slug = new nguyenanhung\Libraries\Slug\SlugUrl();
-
         return $slug->searchSlugify($str);
     }
 }
@@ -51,8 +52,10 @@ if (!function_exists('convertStrToEn')) {
      */
     function convertStrToEn($str)
     {
+        if (empty($str)) {
+            return $str;
+        }
         $slug = new nguyenanhung\Libraries\Slug\SlugUrl();
-
         return $slug->toEnglish($str);
     }
 }
@@ -69,8 +72,10 @@ if (!function_exists('convert_string_utf8_to_vietnamese')) {
      */
     function convert_string_utf8_to_vietnamese($str)
     {
+        if (empty($str)) {
+            return $str;
+        }
         $slug = new nguyenanhung\Libraries\Slug\SlugUrl();
-
         return $slug->convertStringUtf8ToUnicode($str);
     }
 }
@@ -87,8 +92,10 @@ if (!function_exists('convert_string_utf8_to_unicode')) {
      */
     function convert_string_utf8_to_unicode($str)
     {
+        if (empty($str)) {
+            return $str;
+        }
         $slug = new nguyenanhung\Libraries\Slug\SlugUrl();
-
         return $slug->convertStringUtf8ToUnicode($str);
     }
 }
