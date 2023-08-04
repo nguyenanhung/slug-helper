@@ -15,6 +15,10 @@ if (!function_exists('seoToSlugify')) {
      */
     function seoToSlugify($str): string
     {
+        if (empty($str)) {
+            return $str;
+        }
+
         return (new SlugUrl())->slugify($str);
     }
 }
@@ -31,6 +35,10 @@ if (!function_exists('seoSearchSlugify')) {
      */
     function seoSearchSlugify($str): string
     {
+        if (empty($str)) {
+            return $str;
+        }
+
         return (new SlugUrl())->searchSlugify($str);
     }
 }
@@ -47,6 +55,10 @@ if (!function_exists('convertStrToEn')) {
      */
     function convertStrToEn($str): string
     {
+        if (empty($str)) {
+            return $str;
+        }
+
         return (new SlugUrl())->toEnglish($str);
     }
 }
@@ -63,6 +75,10 @@ if (!function_exists('convert_string_utf8_to_vietnamese')) {
      */
     function convert_string_utf8_to_vietnamese($str)
     {
+        if (empty($str)) {
+            return $str;
+        }
+
         return (new SlugUrl())->convertStringUtf8ToUnicode($str);
     }
 }
@@ -79,6 +95,10 @@ if (!function_exists('convert_string_utf8_to_unicode')) {
      */
     function convert_string_utf8_to_unicode($str)
     {
+        if (empty($str)) {
+            return $str;
+        }
+
         return (new SlugUrl())->convertStringUtf8ToUnicode($str);
     }
 }

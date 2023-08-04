@@ -102,6 +102,9 @@ class SlugUrl
      */
     public function slugify(string $str = '', $options = null): string
     {
+        if (empty($str)) {
+            return $str;
+        }
         try {
             if ($options === null) {
                 $slugify = new Slugify();
@@ -130,8 +133,12 @@ class SlugUrl
      */
     public function searchSlugify(string $str = ''): string
     {
+        if (empty($str)) {
+            return $str;
+        }
         try {
             $options = array('separator' => '+');
+
             return (new Slugify($options))->slugify($str);
         } catch (Exception $e) {
             return $this->convertVietnameseToEnglish($str);
@@ -150,6 +157,9 @@ class SlugUrl
      */
     public function toEnglish(string $str = ''): string
     {
+        if (empty($str)) {
+            return $str;
+        }
         try {
             $options = array('separator' => ' ');
 
@@ -171,6 +181,10 @@ class SlugUrl
      */
     public function urlEncode(string $url = ''): string
     {
+        if (empty($url)) {
+            return $url;
+        }
+
         return urlencode($url);
     }
 
@@ -186,6 +200,10 @@ class SlugUrl
      */
     public function urlDecode(string $url): string
     {
+        if (empty($url)) {
+            return $url;
+        }
+
         return urldecode($url);
     }
 
@@ -205,8 +223,11 @@ class SlugUrl
      */
     public function convertVietnameseToEnglish(string $str = ''): string
     {
-        $str  = trim($str);
-        $str  = function_exists('mb_strtolower') ? mb_strtolower($str) : strtolower($str);
+        if (empty($str)) {
+            return $str;
+        }
+        $str = trim($str);
+        $str = function_exists('mb_strtolower') ? mb_strtolower($str) : strtolower($str);
         $data = DataRepository::getData('convert_vi_to_en');
         if (!empty($str)) {
             $str = str_replace(
@@ -237,9 +258,13 @@ class SlugUrl
      */
     public function convertStringUtf8ToUnicode(string $str = '')
     {
+        if (empty($str)) {
+            return $str;
+        }
+        $str = trim($str);
         if ($str !== '') {
             $data = DataRepository::getData('convert_utf8_to_unicode');
-            $str  = str_replace($data['utf8_array'], $data['unicode_array'], $str);
+            $str = str_replace($data['utf8_array'], $data['unicode_array'], $str);
         }
 
         return $str;
