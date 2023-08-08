@@ -235,10 +235,10 @@ class SlugUrl
                 array($data['en_array'], $data['separator'], $data['separator']),
                 $str
             );
-            while (strpos($str, '--') > 0) {
+            while (mb_strpos($str, '--') > 0) {
                 $str = str_replace('--', $data['separator'], $str);
             }
-            while (strpos($str, '--') === 0) {
+            while (mb_strpos($str, '--') === 0) {
                 $str = str_replace('--', $data['separator'], $str);
             }
         }

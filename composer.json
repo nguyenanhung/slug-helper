@@ -21,7 +21,8 @@
     ],
     "require": {
         "php": ">=7.0",
-        "cocur/slugify": "^4.0 || ^3.0 || ^2.0 || ^1.0"
+        "cocur/slugify": "^4.0 || ^3.0 || ^2.0 || ^1.0",
+        "ext-mbstring": "*"
     },
     "autoload": {
         "psr-4": {
