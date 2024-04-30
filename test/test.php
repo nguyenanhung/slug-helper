@@ -4,7 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use nguyenanhung\Libraries\Slug\SlugUrl;
 use EasySlugger\Utf8Slugger;
-
+use JpnForPhp\Transliterator\Transliterator;
 
 $slugUrl = new SlugUrl();
 $slugUrl->setSiteUrl('https://nguyenanhung.com')->setSiteExt('.html');
@@ -19,13 +19,8 @@ echo "searchSlugify: " . $slugUrl->searchSlugify($name) . PHP_EOL;
 echo "toEnglish: " . $slugUrl->toEnglish($name) . PHP_EOL;
 // echo "convertVietnameseToEnglish: " . $slugUrl->convertVietnameseToEnglish($name) . PHP_EOL;
 
-// Tạo một Transliterator object từ ID của bộ transliteration rules. Ở đây, 'Any-Latin; Latin-ASCII' có nghĩa là chuyển đổi từ bất kỳ bộ ký tự nào sang Latin, sau đó chuyển đổi từ Latin sang ASCII.
+echo "--------Transliterator-----------" . PHP_EOL;
 
-// Văn bản đầu vào
-$input_text = "こんにちは、世界";
-
-// Thực hiện chuyển đổi văn bản
-$output_text = transliterator_transliterate('Any-Latin; Latin-ASCII', $name);
-
-// In kết quả
-echo $slugUrl->slugify($output_text); // Output: konnichiwa,-Shi Jie
+$transliterator = new Transliterator();
+$transliterator->setSystem(new \JpnForPhp\Transliterator\System\Hiragana());
+echo $transliterator->transliterate($name) . PHP_EOL;

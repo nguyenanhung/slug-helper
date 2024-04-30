@@ -19,12 +19,18 @@
             "role": "Developer"
         }
     ],
+    "support": {
+        "issues": "https://github.com/nguyenanhung/slug-helper/issues",
+        "wiki": "https://github.com/nguyenanhung/slug-helper/wiki",
+        "source": "https://github.com/nguyenanhung/slug-helper"
+    },
     "require": {
         "php": ">=7.0",
-        "cocur/slugify": "^4.0 || ^3.0 || ^2.0 || ^1.0",
+        "cocur/slugify": "<4.2 ^4.0 || ^3.0 || ^2.0 || ^1.0",
         "ext-mbstring": "*",
+        "ext-intl": "*",
         "javiereguiluz/easyslugger": "^1.0",
-        "ext-intl": "*"
+        "mbilbille/jpnforphp": "^0.8.1"
     },
     "autoload": {
         "psr-4": {
