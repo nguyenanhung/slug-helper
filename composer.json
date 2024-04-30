@@ -25,8 +25,8 @@
         "source": "https://github.com/nguyenanhung/slug-helper"
     },
     "require": {
-        "php": ">=7.0",
-        "cocur/slugify": "<4.2 ^4.0 || ^3.0 || ^2.0 || ^1.0",
+        "php": ">=8.0",
+        "cocur/slugify": "^4.0 || ^3.0 || ^2.0 || ^1.0",
         "ext-mbstring": "*",
         "ext-intl": "*",
         "javiereguiluz/easyslugger": "^1.0",
