@@ -9,7 +9,7 @@ use JpnForPhp\Transliterator\Transliterator;
 $slugUrl = new SlugUrl();
 $slugUrl->setSiteUrl('https://nguyenanhung.com')->setSiteExt('.html');
 
-$name = "訪日旅行の企画・手配業務の求人";
+$name = "Nguyễn An Hưng";
 
 
 echo "name: " . trim($name) . PHP_EOL;
