@@ -2,7 +2,7 @@
 
 use nguyenanhung\Libraries\Slug\SlugUrl;
 
-if (!function_exists('seoToSlugify')) {
+if ( ! function_exists('seoToSlugify')) {
     /**
      * Function seoToSlugify
      *
@@ -22,7 +22,7 @@ if (!function_exists('seoToSlugify')) {
         return (new SlugUrl())->slugify($str);
     }
 }
-if (!function_exists('seoSearchSlugify')) {
+if ( ! function_exists('seoSearchSlugify')) {
     /**
      * Function seoSearchSlugify
      *
@@ -42,7 +42,7 @@ if (!function_exists('seoSearchSlugify')) {
         return (new SlugUrl())->searchSlugify($str);
     }
 }
-if (!function_exists('convertStrToEn')) {
+if ( ! function_exists('convertStrToEn')) {
     /**
      * Function convertStrToEn
      *
@@ -62,7 +62,7 @@ if (!function_exists('convertStrToEn')) {
         return (new SlugUrl())->toEnglish($str);
     }
 }
-if (!function_exists('convert_string_utf8_to_vietnamese')) {
+if ( ! function_exists('convert_string_utf8_to_vietnamese')) {
     /**
      * Function convert_string_utf8_to_vietnamese
      *
@@ -82,7 +82,7 @@ if (!function_exists('convert_string_utf8_to_vietnamese')) {
         return (new SlugUrl())->convertStringUtf8ToUnicode($str);
     }
 }
-if (!function_exists('convert_string_utf8_to_unicode')) {
+if ( ! function_exists('convert_string_utf8_to_unicode')) {
     /**
      * Function convert_string_utf8_to_unicode
      *

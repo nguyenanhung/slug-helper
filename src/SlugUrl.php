@@ -32,7 +32,7 @@ class SlugUrl
     /**
      * Function setSiteUrl
      *
-     * @param string $siteUrl
+     * @param  string  $siteUrl
      *
      * @return $this
      * @author   : 713uk13m <dev@nguyenanhung.com>
@@ -92,13 +92,13 @@ class SlugUrl
     /**
      * Function slugify - SEO Slugify
      *
+     * @param  string  $str
+     * @param  mixed  $options
+     *
+     * @return string
      * @author: 713uk13m <dev@nguyenanhung.com>
      * @time  : 9/21/18 02:49
      *
-     * @param string $str
-     * @param mixed  $options
-     *
-     * @return string
      */
     public function slugify(string $str = '', $options = null): string
     {
@@ -118,13 +118,12 @@ class SlugUrl
         } catch (Exception $e) {
             return $this->convertVietnameseToEnglish($str);
         }
-
     }
 
     /**
      * Function searchSlugify - SEO Search Slugify
      *
-     * @param string $str
+     * @param  string  $str
      *
      * @return string
      * @author   : 713uk13m <dev@nguyenanhung.com>
@@ -148,7 +147,7 @@ class SlugUrl
     /**
      * Function toEnglish - Convert String to English
      *
-     * @param string $str
+     * @param  string  $str
      *
      * @return string
      * @author   : 713uk13m <dev@nguyenanhung.com>
@@ -172,7 +171,7 @@ class SlugUrl
     /**
      * Function urlEncode
      *
-     * @param string $url
+     * @param  string  $url
      *
      * @return string
      * @author   : 713uk13m <dev@nguyenanhung.com>
@@ -191,7 +190,7 @@ class SlugUrl
     /**
      * Function urlDecode
      *
-     * @param string $url
+     * @param  string  $url
      *
      * @return string
      * @author   : 713uk13m <dev@nguyenanhung.com>
@@ -214,7 +213,7 @@ class SlugUrl
      *
      * Sử dụng trong trường hợp class slugify nó không chạy
      *
-     * @param string $str Chuỗi ký tự đầu vào
+     * @param  string  $str  Chuỗi ký tự đầu vào
      *
      * @return string Đầu ra rà 1 chuỗi ký tự
      * @author: 713uk13m <dev@nguyenanhung.com>
@@ -229,7 +228,7 @@ class SlugUrl
         $str = trim($str);
         $str = function_exists('mb_strtolower') ? mb_strtolower($str) : strtolower($str);
         $data = DataRepository::getData('convert_vi_to_en');
-        if (!empty($str)) {
+        if ( ! empty($str)) {
             $str = str_replace(
                 array($data['vn_array'], $data['special_array'], ' '),
                 array($data['en_array'], $data['separator'], $data['separator']),
@@ -249,7 +248,7 @@ class SlugUrl
     /**
      * Function convertStringUtf8ToUnicode
      *
-     * @param string $str
+     * @param  string  $str
      *
      * @return array|string|string[]
      * @author   : 713uk13m <dev@nguyenanhung.com>

@@ -8,6 +8,7 @@ Slug Helper - Basic, Simple and Lightweight
 
 - [x] `v1.x` support all PHP version `>=5.3`
 - [x] `v2.x` support all PHP version `>=7.0`
+- [x] `v3.x` support all PHP version `>=8.0`
 
 ## Contact & Support
 
