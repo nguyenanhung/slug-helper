@@ -1,4 +1,9 @@
-[![Latest Stable Version](http://poser.pugx.org/nguyenanhung/slug-helper/v)](https://packagist.org/packages/nguyenanhung/slug-helper) [![Total Downloads](http://poser.pugx.org/nguyenanhung/slug-helper/downloads)](https://packagist.org/packages/nguyenanhung/slug-helper) [![Latest Unstable Version](http://poser.pugx.org/nguyenanhung/slug-helper/v/unstable)](https://packagist.org/packages/nguyenanhung/slug-helper) [![License](http://poser.pugx.org/nguyenanhung/slug-helper/license)](https://packagist.org/packages/nguyenanhung/slug-helper) [![PHP Version Require](http://poser.pugx.org/nguyenanhung/slug-helper/require/php)](https://packagist.org/packages/nguyenanhung/slug-helper)
+[![Latest Stable Version](https://img.shields.io/packagist/v/nguyenanhung/slug-helper.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/slug-helper)
+[![Total Downloads](https://img.shields.io/packagist/dt/nguyenanhung/slug-helper.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/slug-helper)
+[![Daily Downloads](https://img.shields.io/packagist/dd/nguyenanhung/slug-helper.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/slug-helper)
+[![Monthly Downloads](https://img.shields.io/packagist/dm/nguyenanhung/slug-helper.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/slug-helper)
+[![License](https://img.shields.io/packagist/l/nguyenanhung/slug-helper.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/slug-helper)
+[![PHP Version Require](https://img.shields.io/packagist/dependency-v/nguyenanhung/slug-helper/php)](https://packagist.org/packages/nguyenanhung/slug-helper)
 
 # Slug Helper
 
